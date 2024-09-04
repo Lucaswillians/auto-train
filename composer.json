@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "pestphp/pest": "^2.35"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "autoload": {
+        "psr-4": {"AutoTrain\\": "AutoTrain/"}
+    }
+}

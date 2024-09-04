@@ -34,6 +34,8 @@ RUN apt -y install curl
 RUN a2enmod ssl
 RUN a2enmod rewrite
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
 # php ini
 RUN echo '\nmemory_limit = -1\nmax_execution_time = 0\nupload_max_filesize = 32M\npost_max_size = 32M\nopcache.enable = On\nopcache.validate_timestamps = On\nopcache.memory_consumption = 32\n' >> /etc/php/8.2/cli/php.ini
 RUN echo '\nmemory_limit = -1\nmax_execution_time = 0\nupload_max_filesize = 32M\npost_max_size = 32M\nopcache.enable = On\nopcache.validate_timestamps = On\nopcache.memory_consumption = 32\n' >> /etc/php/8.2/apache2/php.ini
