@@ -1,6 +1,11 @@
 # auto-train
 🚂 Algorithm to be a autonomous train by commands sequence.
 
+# Integrantes
+- Cristian Prochnow
+- Lucas Willian de Souza Serpa
+- Marlon de Souza
+
 # Rules
 
 1. Path must be filled just with `DIREITA` and `ESQUERDA`
