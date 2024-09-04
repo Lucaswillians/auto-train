@@ -16,3 +16,4 @@
 1. Create a `train.txt` file in project root with path coordinates
 2. Run `docker compose up`
 3. Open project in `http://localhost`
+4. To run tests enter in Docker container bash and run ` ./vendor/bin/pest`
