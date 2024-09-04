@@ -1,7 +1,6 @@
 <?php
 
     use AutoTrain\Helpers\Path;
-    use Exception;
 
     describe('discover paths', function() {
         it('may turn coordinate into list', function () {

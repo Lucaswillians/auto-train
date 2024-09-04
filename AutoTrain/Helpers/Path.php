@@ -8,8 +8,8 @@
         public const RIGHT = 'DIREITA';
         public const LEFT = 'ESQUERDA';
 
-        private const PATH_LIMIT = 50;
-        private const DIRECTION_LIMIT = 20;
+        public const PATH_LIMIT = 50;
+        public const DIRECTION_LIMIT = 20;
 
         /**
          * @throws Exception
@@ -22,7 +22,7 @@
             }
 
             if (count($paths) > self::PATH_LIMIT) {
-                throw new Exception('Paths can not be more than 50');
+                throw new Exception('Paths can not be more than '.self::PATH_LIMIT);
             }
 
             $right = [];
@@ -36,7 +36,7 @@
                     $leftCount === self::DIRECTION_LIMIT ||
                     $rightCount === self::DIRECTION_LIMIT
                 ) {
-                    throw new Exception('Each step can not have a sequence bigger than 20');
+                    throw new Exception('Each step can not have a sequence bigger than '.self::DIRECTION_LIMIT);
                 }
 
                 if ($path === self::RIGHT) {
@@ -55,7 +55,7 @@
             }
 
             if ((count($right) + count($left)) !== count($paths)) {
-                throw new Exception('Steps must be DIREITA and ESQUERDA only');
+                throw new Exception('Steps must be '.self::RIGHT.' and '.self::LEFT.' only');
             }
 
             return $paths;

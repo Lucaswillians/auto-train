@@ -7,16 +7,30 @@
 
     class AutoTrain {
         public static function start(): void {
+            header('Content-Type: application/json');
+            echo json_encode(self::run());
+        }
+
+        /**
+         * @param string $file
+         * @return array{
+         *     steps: array{
+         *         initial: int,
+         *         final: int
+         *     },
+         *     error: string
+         * }
+         */
+        public static function run(string $file = ''): array {
             $response = [];
 
             try {
-                $steps = Path::getSteps();
+                $steps = Path::getSteps($file);
                 $response['steps'] = self::solve($steps);
             } catch (Exception $error) {
                 $response['error'] = $error->getMessage();
             } finally {
-                header('Content-Type: application/json');
-                echo json_encode($response);
+                return $response;
             }
         }
 
