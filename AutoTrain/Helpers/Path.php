@@ -14,8 +14,8 @@
         /**
          * @throws Exception
          */
-        public static function getSteps(): array {
-            $paths = self::getPath();
+        public static function getSteps(string $file = ''): array {
+            $paths = self::getPath(self::getFileContent($file));
 
             if (empty($paths)) {
                 throw new Exception('Paths can not be empty');
@@ -61,8 +61,11 @@
             return $paths;
         }
 
-        private static function getPath(): array {
-            $fileContent = file_get_contents(__DIR__.'/../../train.txt');
+        private static function getFileContent(string $path = ''): string {
+            return file_get_contents( $path ?: __DIR__.'/../../train.txt');
+        }
+
+        public static function getPath(string $fileContent): array {
             $paths = explode(",", $fileContent);
 
             $sortedPaths = [];
@@ -71,7 +74,7 @@
 
                 if (empty($path)) continue;
 
-                $sortedPaths[] = mb_strtoupper($path, 'UTF-8');
+                $sortedPaths[] = $path;
             }
 
             return $sortedPaths;
